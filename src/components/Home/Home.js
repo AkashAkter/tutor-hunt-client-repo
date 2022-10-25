@@ -1,9 +1,4 @@
-
-
-
 const Home = () => {
-
-
     return (
         <div>
 
