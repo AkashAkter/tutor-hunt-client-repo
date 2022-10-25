@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import SideNav from "../../SideNav/SideNav";
 import Course from "./Course/Course";
 
 const Courses = () => {
@@ -8,7 +9,13 @@ const Courses = () => {
     return (
         <div className="p-10 flex ">
             <div className="w-1/5 my-12">
-                <h1>Total {courses.length}</h1>
+
+                {
+                    courses.map(course => <SideNav
+                        key={course.id}
+                        course={course}
+                    ></SideNav>)
+                }
             </div>
             <div className="w-4/5">
                 {
@@ -18,7 +25,7 @@ const Courses = () => {
                     ></Course>)
                 }
             </div>
-        </div>
+        </div >
     );
 };
 
