@@ -9,8 +9,8 @@ const CourseDetails = () => {
     return (
         <div>
 
-            <div className='bg-sky-50 m-10 flex justify-around p-10'>
-                <div className='w-3/5 p-2'>
+            <div className='bg-sky-50 m-10 lg:flex justify-around p-10'>
+                <div className='lg:w-3/5 p-2'>
                     <div >
                         <h1 className='text-4xl font-extrabold	'>{name}</h1>
                         <h4 className='font-medium py-2'>{courseIntro}</h4>
@@ -33,7 +33,7 @@ const CourseDetails = () => {
 
                     </div>
                 </div>
-                <div className='w-2/5 p-2'>
+                <div className='lg:w-2/5 p-2'>
                     <img className='w-full' src={courseBanner} alt="" />
                     <div className="flex gap-5">
                         <div className='text-2xl'>Time Left</div>
