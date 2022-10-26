@@ -1,4 +1,4 @@
-
+import { FaUserAlt } from 'react-icons/fa';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import image from '../../assests/Logo.png'
@@ -6,10 +6,16 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Header = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
     return (
-        <div>
+        <div className='px-4'>
             <div className="navbar bg-base-100 ">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -51,7 +57,21 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <p>{user?.name}</p>
+                    {
+                        user?.email ?
+                            <>
+
+                                <img className='w-8 h-8 rounded-full' src={user?.photoURL} alt="" />
+                                <button onClick={handleLogOut} className="relative inline-flex items-center justify-center p-0.5 ml-1 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                                    <span class="relative px-1 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                        Sign Out
+                                    </span>
+                                </button>
+                            </>
+
+                            : <Link to='/signIn'><FaUserAlt></FaUserAlt></Link>
+                    }
+
                 </div>
             </div>
         </div>
