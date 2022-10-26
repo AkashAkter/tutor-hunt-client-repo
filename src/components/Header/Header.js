@@ -1,10 +1,12 @@
-import { FaUserAlt } from 'react-icons/fa';
+import { FaUserAlt, FaRegUser } from 'react-icons/fa';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import image from '../../assests/Logo.png'
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Header = () => {
+
+    const location = useLocation();
 
     const { user, logOut } = useContext(AuthContext);
 
@@ -14,9 +16,13 @@ const Header = () => {
             .catch(error => console.error(error))
     }
 
+    const darkMode = () => {
+        document.documentElement.classList.toggle('dark');
+    }
+
     return (
-        <div className='px-4'>
-            <div className="navbar bg-base-100 ">
+        <div className=''>
+            <div className="navbar px-4 dark:bg-slate-700">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,48 +34,77 @@ const Header = () => {
                             <li><Link to='/blogs'>Blogs</Link></li>
                             <li><Link to='/signIn'>Sign In</Link></li>
                             <li><Link to='/signUp'>Sign Up</Link></li>
+                            <li><button onClick={darkMode}>Test</button></li>
 
                         </ul>
                     </div>
 
                     <Link className='flex items-center' to='/' >
                         <img className='h-12 w-12' src={image} alt="" />
-                        <p className=" p-4 rounded-full bg-cyan-50 hover:bg-cyan-500 hover:text-white normal-case text-xl">Tutor Hunt</p>
+                        <p className=" p-4 rounded-full bg-cyan-50 hover:bg-cyan-500 hover:text-white normal-case text-xl dark:bg-slate-600 dark:text-white dark:font-black dark:hover:bg-slate-400">Tutor Hunt</p>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold'>
-                            <Link to='/courses'>Courses</Link>
-                        </li>
-                        <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold'>
+                        {
+
+                            location.pathname === '/courses' ?
+
+                                <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold dark:text-white dark:hover:bg-slate-500 font-bold'>
+                                    <Link to='/courses'>List</Link>
+                                </li>
+                                :
+                                <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold dark:text-white dark:hover:bg-slate-500 font-bold'>
+                                    <Link to='/courses'>Courses</Link>
+                                </li>
+
+
+                        }
+                        <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold dark:text-white dark:hover:bg-slate-500 font-bold'>
                             <Link to='/faq'>FAQ</Link>
                         </li>
-                        <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold'>
+                        <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold dark:text-white dark:hover:bg-slate-500 font-bold'>
                             <Link to='/blogs'>Blogs</Link>
                         </li>
-                        <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold'>
+                        <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold dark:text-white dark:hover:bg-slate-500 font-bold'>
                             <Link to='/signIn'>Sign In</Link>
                         </li>
-                        <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold'>
+                        <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold dark:text-white dark:hover:bg-slate-500 font-bold'>
                             <Link to='/signUp'>Sign Up</Link>
                         </li>
+                        <li className='text-sm p-0 rounded-lg dark:bg-slate-50'><button onClick={darkMode}>Change Mode</button></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {
                         user?.email ?
                             <>
+                                {
+                                    user.photoURL ?
+                                        <>
+                                            <h1 className='text-black dark:text-white'>{user.displayName}</h1>
+                                            <img className='w-8 h-8 rounded-full hover:' src={user?.photoURL} alt="" />
+                                            <button onClick={handleLogOut} className="relative inline-flex items-center justify-center p-0.5 ml-1 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                                                <span className="relative px-1 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                                    Sign Out
+                                                </span>
+                                            </button>
+                                        </>
+                                        :
+                                        <>
+                                            <FaUserAlt></FaUserAlt>
+                                            <button onClick={handleLogOut} className="relative inline-flex items-center justify-center p-0.5 ml-1 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                                                <span className="relative px-1 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                                    Sign Out
+                                                </span>
+                                            </button>
 
-                                <img className='w-8 h-8 rounded-full' src={user?.photoURL} alt="" />
-                                <button onClick={handleLogOut} className="relative inline-flex items-center justify-center p-0.5 ml-1 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-                                    <span class="relative px-1 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                        Sign Out
-                                    </span>
-                                </button>
+                                        </>
+                                }
+
                             </>
 
-                            : <Link to='/signIn'><FaUserAlt></FaUserAlt></Link>
+                            : <Link to='/signIn'><FaRegUser></FaRegUser></Link>
                     }
 
                 </div>

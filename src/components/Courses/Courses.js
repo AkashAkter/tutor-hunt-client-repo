@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import SideNav from "../../SideNav/SideNav";
-import Course from "./Course/Course";
+import Course from "../Course/Course";
 
 const Courses = () => {
 

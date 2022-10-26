@@ -1,0 +1,15 @@
+div .bg {
+
+    background-repeat: no-repeat;
+    height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('../../assests/background.jpg') no-repeat center fixed;
+    width: 100%;
+}
+
+.enroll {
+    background-image: url(./enroll.png);
+    background-repeat: no-repeat;
+    width: auto;
+    height: auto;
+}

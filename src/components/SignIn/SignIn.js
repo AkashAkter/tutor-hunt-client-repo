@@ -1,11 +1,38 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+
 
 const SignIn = () => {
 
+    const [error, setError] = useState('');
     const { signIn } = useContext(AuthContext);
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                setError('')
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+                alert(error);
+                form.reset();
+            })
+    }
 
     const { providerLogin } = useContext(AuthContext);
 
@@ -40,7 +67,7 @@ const SignIn = () => {
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                                 Sign in to your account
                             </h1>
-                            <form className="space-y-4 md:space-y-6" action="#">
+                            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6" action="#">
                                 <div>
                                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Your email</label>
                                     <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="Email Address" required="" />
