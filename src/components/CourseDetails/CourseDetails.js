@@ -99,8 +99,9 @@ const CourseDetails = () => {
                                     sec
                                 </div>
                             </div>
-                            <Link to={`/courses/${id}`}>
-                                <button className="btn btn-outline btn-info w-full mt-3">Enroll Now</button></Link>
+                            <Link to={`/courses/${id}/enroll`}>
+                                <button className="btn btn-outline btn-info w-full mt-3">Enroll Now</button>
+                            </Link>
                         </div>
                     </div>
                     <div className='lg:mx-10 lg:px-10'>
