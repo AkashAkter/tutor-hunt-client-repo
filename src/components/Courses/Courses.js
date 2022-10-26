@@ -8,7 +8,7 @@ const Courses = () => {
 
     return (
         <div className="p-10 flex ">
-            <div className="w-1/5 my-12">
+            <div className="w-1/6 my-12">
 
                 {
                     courses.map(course => <SideNav
@@ -17,7 +17,7 @@ const Courses = () => {
                     ></SideNav>)
                 }
             </div>
-            <div className="w-4/5 grid md:grid-cols-2 lg:grid-cols-3 gap-4 h-full">
+            <div className="w-5/6 grid md:grid-cols-2 lg:grid-cols-3 gap-4 h-full">
                 {
                     courses.map(course => <Course
                         key={course.id}

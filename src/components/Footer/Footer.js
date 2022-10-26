@@ -4,7 +4,7 @@ const Footer = () => {
     return (
 
 
-        <footer className="p-4 mt-12 bg-gray-500 text-white rounded-t-lg shadow md:px-6 md:py-8 ">
+        <footer className="p-4 mt-12 bg-gray-500 text-white rounded-t-lg shadow md:px-6 md:py-8 dark:bg-gray-800">
             <div className="sm:flex sm:items-center sm:justify-between">
                 <p href="" className="flex items-center mb-4 sm:mb-0">
 
@@ -26,7 +26,7 @@ const Footer = () => {
                 </ul>
             </div>
             <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
-            <span className="block text-sm  sm:text-center">© 2022 <a href="https://flowbite.com/" className="hover:underline">Tutor Hunt™</a>. All Rights Reserved.
+            <span className="block text-sm  sm:text-center">© 2022 <a className="hover:underline">Tutor Hunt™</a>. All Rights Reserved.
             </span>
         </footer>
 

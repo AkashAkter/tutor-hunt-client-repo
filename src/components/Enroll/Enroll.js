@@ -6,7 +6,13 @@ const Enroll = () => {
     // console.log(course);
     return (
         <div>
-            <h1>{course.name}</h1>
+            <div className='bg-gray-700 dark:bg-gray-200 p-12 m-12 rounded-md text-white dark:text-black'>
+                <h1 className='text-4xl'>Congratulations! Now You have access of '<span className='font-bold'>{course.name}</span>'</h1>
+            </div>
+            <div className='m-12 p-12'>
+                <p>{course.about}</p>
+                <p>{course.courseDetails}</p>
+            </div>
         </div>
     );
 };

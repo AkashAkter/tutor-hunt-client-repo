@@ -5,7 +5,7 @@ const Course = ({ course }) => {
     const { id, name, courseBanner, courseIntro, cost, enrolled } = course;
     return (
 
-        <div>
+        <div className='mx-6'>
             <Link to={`/courses/${id}`}>
                 <div className='bg-stone-200 hover:bg-cyan-100 hover:drop-shadow-2xl rounded-lg my-12'>
                     <img className='h-full w-full rounded-lg' src={courseBanner} alt="" />

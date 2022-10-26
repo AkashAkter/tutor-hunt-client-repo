@@ -51,7 +51,7 @@ const Header = () => {
                             location.pathname === '/courses' ?
 
                                 <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold dark:text-white dark:hover:bg-slate-500 font-bold'>
-                                    <Link to='/courses'>List</Link>
+                                    <Link to='/courses'>Course List</Link>
                                 </li>
                                 :
                                 <li className='hover:bg-cyan-200 rounded-lg hover:text-white hover:font-semibold dark:text-white dark:hover:bg-slate-500 font-bold'>
@@ -82,8 +82,9 @@ const Header = () => {
                                 {
                                     user.photoURL ?
                                         <>
-                                            <h1 className='text-black dark:text-white'>{user.displayName}</h1>
-                                            <img className='w-8 h-8 rounded-full hover:' src={user?.photoURL} alt="" />
+                                            <div className='flex group mr-2 tooltip tooltip-left' data-tip={user.displayName}>
+                                                <img className='w-8 h-8 rounded-full' src={user?.photoURL} alt="" />
+                                            </div>
                                             <button onClick={handleLogOut} className="relative inline-flex items-center justify-center p-0.5 ml-1 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
                                                 <span className="relative px-1 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                                                     Sign Out
