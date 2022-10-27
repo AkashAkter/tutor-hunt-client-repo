@@ -75,8 +75,7 @@ const SignUp = () => {
                                 type="link"
                                 className="block border border-grey-light w-full p-3 rounded mb-4"
                                 name="photoURL"
-                                placeholder="Photo URL"
-                                required />
+                                placeholder="Photo URL" />
                             <input
                                 type="password"
                                 className="block border border-grey-light w-full p-3 rounded mb-4"

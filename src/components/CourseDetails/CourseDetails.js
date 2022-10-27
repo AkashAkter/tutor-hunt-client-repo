@@ -100,7 +100,7 @@ const CourseDetails = () => {
                                 </div>
                             </div>
                             <Link to={`/courses/${id}/enroll`}>
-                                <button className="btn btn-outline btn-info w-full mt-3">Enroll Now</button>
+                                <button className="btn btn-outline btn-info w-full mt-3">Get Premium Access</button>
                             </Link>
                         </div>
                     </div>

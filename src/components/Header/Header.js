@@ -93,7 +93,10 @@ const Header = () => {
                                         </>
                                         :
                                         <>
-                                            <FaUserAlt></FaUserAlt>
+                                            <div className='flex group mr-2 tooltip tooltip-left' data-tip={user.displayName}>
+                                                <FaUserAlt></FaUserAlt>
+                                            </div>
+
                                             <button onClick={handleLogOut} className="relative inline-flex items-center justify-center p-0.5 ml-1 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
                                                 <span className="relative px-1 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                                                     Sign Out
@@ -105,7 +108,7 @@ const Header = () => {
 
                             </>
 
-                            : <Link to='/signIn'><FaRegUser></FaRegUser></Link>
+                            : <Link className='dark:text-white hover:bg-slate-400 p-2' to='/signIn'>Login</Link>
                     }
 
                 </div>
