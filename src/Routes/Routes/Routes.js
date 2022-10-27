@@ -24,7 +24,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://tutor-hunt-server-site.vercel.app/courses')
             },
             {
                 path: '/faq',
@@ -45,12 +45,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://tutor-hunt-server-site.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/courses/:id/enroll',
                 element: <PrivateRoute><Enroll></Enroll></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://tutor-hunt-server-site.vercel.app/courses/${params.id}`)
             },
             {
                 path: '*',
