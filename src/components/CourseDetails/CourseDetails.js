@@ -50,12 +50,12 @@ const CourseDetails = () => {
                         <div className='lg:w-3/5 p-2 lg:m-6'>
                             <div >
                                 <h1 className='text-4xl font-extrabold	'>{name}</h1>
-                                <h4 className='text-justify font-medium py-2'>{courseIntro}</h4>
+                                <h4 className='text-justify font-medium py-5'>{courseIntro}</h4>
                                 <p className='text-justify pb-2'>{courseDetails}</p>
                             </div>
                             <div className='flex justify-between items-center'>
                                 <div>
-                                    <h1 className='font-bold'>Course instructor</h1>
+                                    <h1 className='font-semibold mb-3'>Course instructor</h1>
                                     <div className="flex items-center">
 
                                         <img className='h-8 w-8 rounded-full' src={instructor.image} />
@@ -104,7 +104,7 @@ const CourseDetails = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className='lg:mx-10 lg:px-10'>
+                    <div className='lg:m-12 lg:p-12'>
                         <h3 className='text-2xl font-bold'>About</h3>
                         <h1 className='text-justify'>{about}</h1>
                     </div>
